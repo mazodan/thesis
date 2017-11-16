@@ -1,0 +1,15 @@
+.adminTile {
+	background: url('/img/adminbg.png');
+	background-size: 100% 100%;
+	border-radius: 3px
+}
+
+.doctorTile {
+	background: url('/img/clinic.png');
+	background-size: cover;
+	border-radius: 3px
+}
+
+.notification {
+	opacity: 0.8;
+}

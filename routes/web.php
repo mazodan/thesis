@@ -21,10 +21,23 @@ Route::put('/profile','DashboardController@putProfile')->name('putProfile');
 Route::get('/password','DashboardController@password')->name('password');
 Route::patch('/password','DashboardController@patchPassword')->name('patchPassword');
 
-// DataTables specific Routes for AJAX data
+// For Returning Patients
+Route::get('/returnPatients', 'PatientController@retPatientIndex')->name('retPatient');
+Route::get('/patient/{patient}/records', 'RecordController@retRecordsIndex')->name('retRecordsIndex');
+Route::get('/record/{record}/update', 'RecordController@editNotes')->name('editNotes');
+Route::patch('/record/{record}/update', 'RecordController@patchNotes')->name('patchNotes');
 
+// For Existing Patients with New Cases
+Route::get('/newCase', 'PatientController@newCaseIndex')->name('newCaseIndex');
+Route::get('/patient/{patient}/update','PatientController@newCaseUpdate')->name('newCasePatientUpdate');
+
+
+// DataTables specific Routes for AJAX data
+// For the Doctor
 Route::get('/getRecords','RecordController@getRecords')->name('getRecords');
 Route::get('/getPatients','PatientController@getRecords')->name('getPatients');
+// For the Patient
+Route::get('/record/{patient}/data', 'RecordController@retRecords')->name('retRecords');
 
 
 

@@ -167,8 +167,44 @@ class RecordController extends Controller
         echo "Record is Deleted";
     }
 
+    // 
+    public function retRecords(Patient $patient)
+    {
+        // TODO Return view with Name
+        $datajson = array('data' => $patient->records);
+        return $datajson;
+    }
+
+    public function retRecordsIndex(Patient $patient)
+    {
+        // TODO Return view, pass the Patient id to the AJAX
+        return view('record.retIndex', compact('patient'));
+    }
+
+    public function editNotes(Record $record)
+    {
+        return view('record.editNotes', compact('record'));
+    }
+
+    public function patchNotes(Record $record)
+    {
+        // Validate Notes
+        $this->validate(request(), [
+            'notes' => 'required'
+        ]);
+
+        $record->notes = request('notes');
+        $record->save();
+        session()->flash('message', 'The Patient Record has been Updated');
+
+        return redirect()->route('retRecordsIndex',$record->patient->id);
+    }
+
+
+    // Get Records that belongs to the authenticated Doctor
     public function getRecords()
     {
+        // Get all records for that authenticated user
         $records = Record::with('patient')->where('user_id', auth()->id())->orderBy('updated_at', 'desc')->get();
 
         $datajson = array('data' => $records);

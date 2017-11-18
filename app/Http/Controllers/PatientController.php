@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Patient;
+use App\Record;
 use DB;
 
 class PatientController extends Controller
@@ -197,10 +198,31 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Patient $patient)
     {
-        //TODO
+        // Delete all records associated with the patient
+        Record::where('patient_id', $patient->id)->delete();
+        // Delete the patient
+        $patient->delete();
+        echo "Patient and Record of the patient is Deleted";
     }
+
+    public function retPatientIndex()
+    {
+        return view('patient.retPatientIndex');
+    }
+
+    public function newCaseIndex()
+    {
+        return view('patient.retCasePatientIndex');
+    }
+
+    public function newCaseUpdate(Patient $patient)
+    {
+        # TODOO...
+    }
+
+    // For Ajax Calls
 
     public function getRecords()
     {

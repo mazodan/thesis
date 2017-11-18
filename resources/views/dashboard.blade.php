@@ -13,16 +13,16 @@
                     </a>
                 </div>
                 <div class="tile is-parent">
-                    <div id="returnPatient" class="tile is-child box">
+                    <a href="{{route('retPatient')}}" id="returnPatient" class="tile is-child box">
                         <p class="title has-text-white">For Returning Patients</p>
                         <p class="subtitle has-text-white">Update their clinical records here</p>
-                    </div>
+                    </a>
                 </div>
                 <div class="tile is-parent">
-                    <div id="newCase" class="tile is-child box">
+                    <a href="{{route('newCaseIndex')}}" id="newCase" class="tile is-child box">
                         <p class="title">Returning Patients with new Case</p>
                         <p class="subtitle">Review Patient Info and go directly to consultation</p>
-                    </div>                    
+                    </a>     
                 </div>                    
             </div>
             <div class="tile is-ancestor">

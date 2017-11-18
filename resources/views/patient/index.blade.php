@@ -48,7 +48,8 @@
 				<button class="delete" aria-label="close"></button>
 			</header>
 			<section class="modal-card-body">
-				<p>This Record will be permanently deleted and this action cannot be reversed</p>
+				<p>This Patient will be permanently deleted and this action cannot be reversed</p>
+				<p><strong>All records associated with the Patient will be deleted, When deleting patients, Consult your fellow doctors using the system if they have records of that patient before attempting to delete.</strong></p>
 				<p>Proceed?</p>
 			</section>
 			<footer class="modal-card-foot">
@@ -133,9 +134,6 @@
 			        .draw();
 				$('#destroy').toggleClass('is-active');
 			});
-
-
-			// Jquery pseudocode
 
 		});
 	</script>

@@ -8,7 +8,7 @@ class Patient extends Model
 {
 	public function records()
 	{
-		return $this->hasMany(Record::class);
+		return $this->hasMany(Record::class)->orderBy('updated_at', 'desc');
 	}
 
 

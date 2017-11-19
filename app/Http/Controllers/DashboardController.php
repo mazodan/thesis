@@ -84,4 +84,11 @@ class DashboardController extends Controller
             return redirect()->back();
         }
     }
+
+    public function showClinicalAbstract()
+    {
+        $pdf = \PDF::loadView('medical.show');
+        $pdf->setPaper('letter', 'portrait');
+        return $pdf->stream();
+    }
 }

@@ -200,6 +200,34 @@ class RecordController extends Controller
         return redirect()->route('retRecordsIndex',$record->patient->id);
     }
 
+    public function newCaseShow(Patient $patient)
+    {
+        // Testing if Patient ID is made for REFERENCE!
+        return view('record.newCaseForPatient', compact('patient'));
+    }
+
+    public function newRecord(Patient $patient)
+    {
+        $this->validate(request(), [
+            'notes' => 'required'
+        ]);
+
+        Record::create([
+            'user_id' => auth()->id(),
+            'patient_id' => $patient->id,
+            'age' => $patient->age,
+            'status' => $patient->status,
+            'height' => $patient->height,
+            'weight' => $patient->weight,
+            'notes' => request('notes')
+        ]);
+
+        
+        session()->flash('message', 'The Patient Record has been Updated');
+
+        return redirect()->route('dashboard');
+    }
+
 
     // Get Records that belongs to the authenticated Doctor
     public function getRecords()

@@ -30,6 +30,13 @@ Route::patch('/record/{record}/update', 'RecordController@patchNotes')->name('pa
 // For Existing Patients with New Cases
 Route::get('/newCase', 'PatientController@newCaseIndex')->name('newCaseIndex');
 Route::get('/patient/{patient}/update','PatientController@newCaseUpdate')->name('newCasePatientUpdate');
+Route::get('/newCase/create/{patient}', 'RecordController@newCaseShow')->name('newCaseShow');
+Route::post('/newCase/create/{patient}', 'RecordController@newRecord')->name('newRecord');
+
+
+// For Clinical Abstract Printing support
+Route::get('/clinicalAbstract', 'DashboardController@showClinicalAbstract')->name('clinicalAbstract');
+
 
 
 // DataTables specific Routes for AJAX data

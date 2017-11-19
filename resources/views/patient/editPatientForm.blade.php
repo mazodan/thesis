@@ -90,7 +90,7 @@
 							<label class="label">Height</label>
 							<div class="field has-addons">
 								<div class="control">
-    								<input id="cm" name="cm" class="input is-hidden" type="text" placeholder="cm">
+    								<input id="cm" name="cm" class="input is-hidden disabled" type="text" placeholder="cm">
   								</div>
 							    <div class="control">
     								<input id="ft" name="ft" class="input" type="text" placeholder="ft" value="{{ (int) ($patient->height / 12) }}">
@@ -229,7 +229,7 @@
 					</div>
 					<div class="field is-grouped">
 						<div class="control">
-							<button type="submit" class="button is-link">Add Patient</button>
+							<button type="submit" class="button is-link is-large">Update Patient</button>
 						</div>
 						<p class="has-text-danger has-text-weight-bold">* required</p>
 					</div>

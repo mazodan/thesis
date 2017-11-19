@@ -129,6 +129,7 @@ class PatientController extends Controller
      */
     public function update(Patient $patient)
     {
+
         $this->validate(request(), [
             'first_name' => 'required|string',
             'last_name' => 'required|string',
@@ -182,6 +183,15 @@ class PatientController extends Controller
         $patient->emergency_contact_number = request('emergency_contact_number');
         $patient->save();
 
+        if ($flash = session('updateNewCasePatient')) {
+            // Create new route specifically for the creation of Patient records inspired by record update of follow up patients
+            // Because both of the two use sessions from patient creation or search from the created record.
+            // Programming is hard work, but really rewarding.
+
+
+            return redirect()->route('newCaseShow', $patient->id);
+        }
+
         session()->flash('message', 'The Patient has been Updated');
         session()->flash('message-warn', 'Some data in the respective patient record is preserved, you will have to change it yourself in the records');
 
@@ -217,9 +227,12 @@ class PatientController extends Controller
         return view('patient.retCasePatientIndex');
     }
 
+
+    // Redirect from datatables to edit
     public function newCaseUpdate(Patient $patient)
     {
-        # TODOO...
+        session()->flash('newCasePatient', 'True'); 
+        return redirect()->route('patient.edit', compact('patient'));
     }
 
     // For Ajax Calls

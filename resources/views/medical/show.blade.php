@@ -11,17 +11,27 @@
         <title>{{ config('app.name', 'Laravel') }} {{ app()->version() }}</title>
 
         <!-- Styles -->
-        <link rel="stylesheet" href="C:\xampp\htdocs\citimedic\public\css\app.css" media="all" />
+        <link rel="stylesheet" href="D:\xampp\htdocs\citimedic\public\css\app.css" media="all" />
 
 
     </head>
 	<body>
 		<div class="container">
             <div class="section content">
-                <h1 class="has-text-centered">Citimedic Medical Arts Clinical Abstract!!</h1>
-                <h3 class="has-text-centered">Hello From Bulma</h3>
-                <p>Lorem ipsum Dolor sit amet fuck this shit xddddddd</p>
-                <p>This is for letter, nor A4 and Legal</p>
+                <h5 class="has-text-centered"><strong>Citimedic Medical Arts </strong></h5>
+                
+                <h5 class="has-text-centered">Medical Certifircate</h5>
+                <h6>Patient: Dan Mikko S. Mazo</h6>
+                <p>This Medical Certificate certifies that Dan Mikko S. Mazo has suffered a certain migrane that caused him to miss his classes, please excuse him</p>
+                <br>
+                <h6 class="has-text-right">Signature above printed name</h6>
+                <h5 class="has-text-right">Physician</h5>
+
+
+                {{-- 
+                <h3 class="has-text-centered">Hello From Bulma CSS</h3>
+                <p>Lorem ipsum Dolor sit amet </p>
+                <p>This is for letter, nor A4 and Legal</p> --}}
             </div>
         </div>
 	</body>

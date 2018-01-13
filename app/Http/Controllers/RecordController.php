@@ -171,6 +171,8 @@ class RecordController extends Controller
     public function retRecords(Patient $patient)
     {
         // TODO Return view with Name
+
+        // CRITICAL! RETURN VIEW, WITH AUTH->ID WHERE CLAUSE; NOT VERY SUBTLE IF I SAY SO MYSELF!!
         $datajson = array('data' => $patient->records);
         return $datajson;
     }
@@ -226,6 +228,12 @@ class RecordController extends Controller
         session()->flash('message', 'The Patient Record has been Updated');
 
         return redirect()->route('dashboard');
+    }
+
+    public function createCertifications(Patient $patient)
+    {
+
+        return view('record.mdRecordIndex', compact('patient'));
     }
 
 

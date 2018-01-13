@@ -227,6 +227,12 @@ class PatientController extends Controller
         return view('patient.retCasePatientIndex');
     }
 
+    // For Patients Medical Certifications or Clinical Abstract
+    public function showCertPatient()
+    {
+        return view('patient.mdPatientIndex');
+    }
+
 
     // Redirect from datatables to edit
     public function newCaseUpdate(Patient $patient)
@@ -234,6 +240,7 @@ class PatientController extends Controller
         session()->flash('newCasePatient', 'True'); 
         return redirect()->route('patient.edit', compact('patient'));
     }
+
 
     // For Ajax Calls
 

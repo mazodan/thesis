@@ -27,10 +27,10 @@
             </div>
             <div class="tile is-ancestor">
                 <div class="tile is-parent">
-                    <div id="clinicAbstract" class="tile is-child box">
+                    <a href="{{route('certIndex')}}" class="tile is-child box" id="clinicAbstract">
                         <p style="color: #1e34ff !important;" class="title">Clinical Abstract/Medical Certificate</p>
                         <p class="subtitle">Refer to the Patient Record for Reference</p>
-                    </div>
+                    </a>
                 </div>
                 <div class="tile is-parent">
                     <a href="{{route('patient.index')}}" id="patientDb" class="tile is-child box">

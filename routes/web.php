@@ -35,8 +35,9 @@ Route::post('/newCase/create/{patient}', 'RecordController@newRecord')->name('ne
 
 
 // For Clinical Abstract Printing support
+Route::get('/certification', 'PatientController@showCertPatient')->name('certIndex');
 Route::get('/clinicalAbstract', 'DashboardController@showClinicalAbstract')->name('clinicalAbstract');
-
+Route::get('/patient/{patient}/certification', 'RecordController@createCertifications')->name('createCert');
 
 
 // DataTables specific Routes for AJAX data
@@ -45,6 +46,9 @@ Route::get('/getRecords','RecordController@getRecords')->name('getRecords');
 Route::get('/getPatients','PatientController@getRecords')->name('getPatients');
 // For the Patient
 Route::get('/record/{patient}/data', 'RecordController@retRecords')->name('retRecords');
+
+// Iframe Indexes
+Route::get('/iframe','IframeController@index')->name('iframeIndx');
 
 
 

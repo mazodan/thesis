@@ -126,9 +126,9 @@
                     </div>
                     <div class="title is-4">
                         Note: this is still an early alpha, some functionality might break <br>
-                        Version: 0.01a - Early Build
+                        Version: 0.02a - Early Alpha - Almost Done Hopefully
                         <br><br>
-                        Made with Laravel, BulmaCSS, coffee, sweat and tears
+                        Made with Laravel, BulmaCSS, Datatables, AJAX coffee (Lots of Coffee).
                     </div>
                 </div>
             </div>

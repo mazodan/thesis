@@ -49,8 +49,19 @@ Route::get('/record/{patient}/data', 'RecordController@retRecords')->name('retRe
 
 // Iframe Indexes
 Route::get('/iframe','IframeController@index')->name('iframeIndx');
+Route::get('/record/{record}/iframe', 'IframeController@show')->name('iframeShow');
 
+// Generate forms from Iframes
+Route::post('/iframe','IframeController@generate')->name('genCert');
 
+// Statistic Pages
+Route::get('/statistics', 'StatController@index')->name('statIndex');
+
+// Backup Records
+Route::post('/DownloadRecord', 'IframeController@downloadRecord')->name('dlRecord');
+
+// Get Statistical Data
+Route::get('/getPatientFreq', 'ChartController@get_patient_freq')->name('gpFreq');
 
 
 // Generated Routes

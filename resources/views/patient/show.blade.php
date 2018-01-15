@@ -63,7 +63,7 @@
 							<p class="tile is-child"><strong>Work Number: </strong>{{$patient->work_number}}</p>
 						</div>
 						<div class="tile is-parent">
-							<p class="tile is-child"><strong>Emergency Contact no: </strong>{{$patient->emergency_contact_number}}011899922848</p>
+							<p class="tile is-child"><strong>Emergency Contact no: </strong>{{$patient->emergency_contact_number}}</p>
 						</div>
 						<div class="tile is-parent is-6">
 							<p class="tile is-child"><strong>Person to notify <small>In case of emergency</small>: </strong>{{$patient->person_to_notify}}</p>

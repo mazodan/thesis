@@ -17,11 +17,13 @@
 		<div class="section content">
 			<div class="columns">
 				<div class="column is-5 is-offset-2">
-					<iframe src="https://citimedic.local/iframe" width="100%" height="300px"></iframe>
+					<iframe src="https://citimedic.local/iframe" width="100%" height="300px" name="reference"></iframe>
 				</div>
 				<div class="column is-5">
 					<h2>Form:</h2>
-					<form method="POST" action="">
+					<form method="POST" action="{{ route('genCert') }}">
+						{{ csrf_field() }}
+						<input type="hidden" name="p_id" value="{{$patient->id}}">
 						<div class="field">
 							<div class="control has-text-centered">
 								<label class="radio">
@@ -37,12 +39,12 @@
 						<div class="field">
 							<label class="label">Body:</label>
 							<div class="control">
-								<textarea id="text-body" class="textarea is-primary" placeholder="Contents of the Medical certificate"></textarea>
+								<textarea id="text-body" class="textarea is-primary" placeholder="Contents of the Medical certificate" name="body"></textarea>
 							</div>
 						</div>
 						<div class="field is-grouped is-grouped-right">
 							<div class="control">
-								<button id="certs" class="button is-link">Generate Form</button>
+								<input class="button is-info" type="submit" name="submit" value="Generate Form">	
 							</div>
 						</div>
 					</form>
@@ -72,6 +74,7 @@
 @section('scripts')
 	<script type="text/javascript" src="{{asset('js/jquery.dataTables.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('js/moment.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/trumbowyg/trumbowyg.min.js')}}"></script>
 	<script type="text/javascript">
 		$(document).ready(function (){
 
@@ -82,7 +85,7 @@
 					{
 						"data":"id",
 						"render": function(data, type, row){
-							return '<a href="/record/' + data + '/iframe">' + data + '</a>';
+							return '<a href="/record/' + data + '/iframe" target="reference">' + data + '</a>';
 						}
 					},
 					{
@@ -99,12 +102,8 @@
 				]
 			});
 
-			$('#certs').click(function(event) {
-				event.preventDefault();
-				var body = $('#text-body').val();
-				var url = 'https://' + location.hostname + '/MedCert?body="' + body + '"';
-				alert(encodeURIComponent(body));
-			});
+			$('#text-body').trumbowyg();
+
 
 		});
 	</script>
@@ -117,4 +116,5 @@
 		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="{{asset('css/jquery.dataTables.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('js/trumbowyg/ui/trumbowyg.min.css')}}">	
 @endsection

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Record extends Model
 {
 	protected $fillable = [
-        'id', 'user_id', 'patient_id', 'notes', 'age', 'status', 'height', 'weight'
+        'id', 'user_id', 'patient_id', 'notes', 'age', 'status', 'height', 'weight', 'created_at'
     ];
 
     public function user()

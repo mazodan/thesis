@@ -47,11 +47,11 @@
                     </a>
                 </div>
                 <div class="tile is-parent">
-                    <div id="stats" class="tile is-child box">
+                    <a href="{{route('statIndex')}}" id="stats" class="tile is-child box">
                         <p class="title has-text-white">Statistics</p>
                         <p class="subtitle has-text-white">Analysis of the aggregated data of your patients</p>
                         <p class="has-text-white">Note: Sensitive Personal Information is not included in the statistics</p>
-                    </div>
+                    </a>
                 </div>
                 <div class="tile is-parent">
                     <div id="docs" class="tile is-child box">

@@ -18,6 +18,11 @@
 			<div class="columns">
 				<div class="column is-2">
 					{{-- Reserve For Menu --}}
+					<form method="POST" action="{{route('dlRecord')}}">
+						{{ csrf_field() }}
+						<input type="hidden" name="record_id" value="{{$record->id}}">
+						<input class="button is-medium is-info" type="submit" name="submit" value="Download Record">
+					</form>
 				</div>
 				<div class="column">
 					<h3>Basic Information</h3>
@@ -63,7 +68,7 @@
 							<p class="tile is-child"><strong>Work Number: </strong>{{$record->patient->work_number}}</p>
 						</div>
 						<div class="tile is-parent">
-							<p class="tile is-child"><strong>Emergency Contact no: </strong>{{$record->patient->emergency_contact_number}}011899922848</p>
+							<p class="tile is-child"><strong>Emergency Contact no: </strong>{{$record->patient->emergency_contact_number}}</p>
 						</div>
 						<div class="tile is-parent is-6">
 							<p class="tile is-child"><strong>Person to notify <small>In case of emergency</small>: </strong>{{$record->patient->person_to_notify}}</p>

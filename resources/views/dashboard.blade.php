@@ -54,11 +54,10 @@
                     </a>
                 </div>
                 <div class="tile is-parent">
-                    <div id="docs" class="tile is-child box">
+                    <a href="{{route('docs')}}" id="docs" class="tile is-child box">
                         <p style="color: #c9edd3 !important;" class="title">Documentation</p>
                         <p class="subtitle has-text-white">Help with using the system</p>
-                        <p class="has-text-white">Note: Documentation is work in progress</p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

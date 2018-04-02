@@ -125,10 +125,10 @@
                         </div>
                     </div>
                     <div class="title is-4">
-                        Note: this is still an early alpha, some functionality might break <br>
-                        Version: 0.02a - Early Alpha - Almost Done Hopefully
+                        Note: In beta, almost ready for production <br>
+                        Version: 0.9b - Late Beta - Almost Done Hopefully
                         <br><br>
-                        Made with Laravel, BulmaCSS, Datatables, AJAX coffee (Lots of Coffee).
+                        Made with Laravel, BulmaCSS, Datatables, AJAX and coffee (Lots of Coffee).
                     </div>
                 </div>
             </div>

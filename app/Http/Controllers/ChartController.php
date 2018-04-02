@@ -17,4 +17,18 @@ class ChartController extends Controller
 
     	return $patient_stat;
     }
+
+    public function get_patient_age()
+    {
+    	$age_stat = DB::select('SELECT age, COUNT(*) as freq FROM patients GROUP BY age');
+
+    	return $age_stat;
+    }
+
+    public function get_patient_weight()
+    {
+    	$age_stat = DB::select('SELECT weight, COUNT(*) as freq FROM patients GROUP BY weight');
+
+    	return $age_stat;
+    }
 }

@@ -62,6 +62,13 @@ Route::post('/DownloadRecord', 'IframeController@downloadRecord')->name('dlRecor
 
 // Get Statistical Data
 Route::get('/getPatientFreq', 'ChartController@get_patient_freq')->name('gpFreq');
+Route::get('/getPatientAge', 'ChartController@get_patient_age')->name('gpAge');
+Route::get('/getPatientWeight', 'ChartController@get_patient_weight')->name('gpWei');
+
+// Documentation Routes
+Route::get('/documentation', 'DashboardController@documentation')->name('docs');
+Route::post('/destroy', 'DashboardController@terminate')->name('user_destroy');
+
 
 
 // Generated Routes

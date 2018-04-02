@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\User;
+use App\Record;
+use Illuminate\Support\Facades\Auth;
 
 
 class DashboardController extends Controller
@@ -25,6 +28,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        Log::info("User ".auth()->user()->username.' viewed the dashboard');
         return view('dashboard');
     }
 
@@ -90,5 +94,22 @@ class DashboardController extends Controller
         $pdf = \PDF::loadView('medical.show');
         $pdf->setPaper('letter', 'portrait');
         return $pdf->stream();
+    }
+
+    public function documentation()
+    {
+        return view('docs.index');
+    }
+
+    public function terminate()
+    {
+        // Remove all records with the doctor
+        Record::where('user_id', auth()->user()->id)->delete();
+        // Remove User
+        User::where('id', auth()->user()->id)->delete();
+        // Force logout
+        Auth::logout();
+        // You are now terminated
+        return redirect('/');
     }
 }

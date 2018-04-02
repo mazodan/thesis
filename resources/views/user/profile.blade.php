@@ -160,11 +160,65 @@
                                 </div>
                             </div>
                         </div>
-
 		            	</form>
+
+
 		            </div>
 				</div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-header-title">
+                            <p class="is-centered">Delete User - <small>Warning, this is not reversable</small></p>
+                        </div>
+                        <div class="card-content">
+                                <div class="control">
+                                    <button class="button is-danger destroy">Delete User</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
 			</div>
+
 		</div>
 	</div>
+
+
+
+    <div id="destroy" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title is-danger">DANGER</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <p class="has-text-danger">You are about to delete yourself from the system</p>
+                <p><strong>All records associated with You will be deleted, This action will be irreversible.</strong></p>
+                <p>Proceed?</p>
+            </section>
+            <footer class="modal-card-foot">
+                <form method="POST" action="{{route('user_destroy')}}">
+                    {{csrf_field()}}
+                  <button type="submit" id="remove" class="button is-danger">DELETE USER</button>
+                </form>
+                &nbsp;
+              <button id="cancel" class="button">Cancel</button>
+            </footer>
+        </div>
+    </div>
+
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+
+    $('.destroy').click(function(){
+        $('#destroy').toggleClass('is-active');
+    });
+
+    $('#cancel, .delete').click(function() {
+        $('#destroy').toggleClass('is-active');
+    });
+</script>
 @endsection
